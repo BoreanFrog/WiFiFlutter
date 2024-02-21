@@ -1366,7 +1366,6 @@ public class WifiIotPlugin
       } else {
         // Make new network specifier
         final WifiNetworkSpecifier.Builder builder = new WifiNetworkSpecifier.Builder();
-        builder.addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET);
         // set ssid
         builder.setSsid(ssid);
         builder.setIsHiddenSsid(isHidden != null ? isHidden : false);
@@ -1394,6 +1393,7 @@ public class WifiIotPlugin
             new NetworkRequest.Builder()
                 .addTransportType(NetworkCapabilities.TRANSPORT_WIFI)
                 .setNetworkSpecifier(builder.build())
+                .addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
                 .build();
 
         final ConnectivityManager connectivityManager =
